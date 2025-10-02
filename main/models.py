@@ -34,6 +34,7 @@ class User(db.Model):
     phone = db.Column(db.String(20), unique=True, nullable=False) # 전화번호 / 필수입력
     address = db.Column(db.String(200), nullable=False) # 주소 / 필수입력
     admin = db.Column(db.Boolean, nullable=False, default=False) # 어드민 여부 / 필수 입력
+    image = db.Column(db.String(200), nullable=True,default='user_img/default.jpg')
 
 # 판매모델 생성
 class Product(db.Model):
@@ -43,7 +44,7 @@ class Product(db.Model):
     content = db.Column(db.Text(), nullable=False) # 글 내용 / 필수입력
     create_date = db.Column(db.DateTime, nullable=False) # 작성일, 시각 / 자동생성
     modify_date = db.Column(db.DateTime, nullable=True) # 글 수정시 수정시각 알려줌
-    price = db.Column(db.string(15), nullable=False) # 가격 / 필수입력
+    price = db.Column(db.String(15), nullable=False) # 가격 / 필수입력
     img_path = db.Column(db.String(200), nullable=True)  # 이미지 삽입시 사진이 아니라 이미지 저장 경로 추적 / 필수입력 아님
 
     # 작성자를 참조
